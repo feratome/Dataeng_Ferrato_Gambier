@@ -13,11 +13,7 @@ Le projet consiste à scraper des données sur le web en utilisant un projet Scr
 
 L'architecture du système est conçue pour permettre le scraping de données web, leur stockage dans une base de données MongoDB via Docker, et leur affichage ultérieur via Flask. Voici une description de l'architecture avec les points d'entrée et de sortie des données :
 
-  
-
-![Architecture du système](lien_vers_l'image)
-
-  
+ 
 
 #### Composantes :
 
