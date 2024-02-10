@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='logo_myprot.png') }}" alt="Logo de l'entreprise">
+        <div class="header--search">
+            <form id="search_mini_form" action="https://www.bulk.com/fr/catalogsearch/result/" method="get" autocomplete="off">
+                <input id="search" class="search-input" type="text" name="q" value="" placeholder="Chercher" maxlength="255" role="combobox" aria-haspopup="false" aria-autocomplete="both">
+            </form>
+        </div>
+    </header>
+
+    <h1>{{ product.product_name }}</h1>
+
+    <div class="product-details">
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Nom du Produit</th>
+                    <th>Prix</th>
+                    <th>Taille</th>
+                    <th>Weight</th>
+                    <th>Nombres d'arômes</th>
+                    <th>Nutriments</th>
+                    <th>Per 100g</th>
+                    <th>Per Portion</th>
+                    <th>Grade</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ product.product_name }}</td>
+                    <td>{{ product.product_price }}</td>
+                    <td>{{ product.size }}</td>
+                    <td>{{ product.weight_count }}</td>
+                    <td>{{ product.arome_count }}</td>
+                    <td>
+                        <ul>
+                            {% for nutrient in product.nutrients %}
+                                <li>{{ nutrient }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            {% for per_100g in product.per_100g %}
+                                <li>{{ per_100g }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            {% for per_portion in product.per_portion %}
+                                <li>{{ per_portion }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>{{ product.product_grade }}</td>
+                    <td><img src="{{ product.image_src }}" alt="Product Image" width="100"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer id="footer" class="footer">
+        <div class="footer__bottom-content">
+            <div class="footer__bottom-copyright">
+                Thomas & Luca 2024©
+            </div>
+        </div> 
+    </footer>
+</body>
+</html>

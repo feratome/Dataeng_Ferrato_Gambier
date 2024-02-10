@@ -1,0 +1,13 @@
+header {
+    /* background-color: #333336; */
+    background-color: #003942;
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    text-align: center;
+}

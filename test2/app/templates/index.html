@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='logo_myprot.png') }}" alt="Logo de l'entreprise">
+        <div class="header--search">
+            <form id="search_mini_form" action="https://www.bulk.com/fr/catalogsearch/result/" method="get" autocomplete="off">
+                <input id="search" class="search-input" type="text" name="q" value="" placeholder="Chercher" maxlength="255" role="combobox" aria-haspopup="false" aria-autocomplete="both">
+            </form>
+        </div>
+    </header>
+
+    <h1>Bienvenue sur notre application web MyProtein</h1>    
+
+    <div class="montableau">
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom du Produit</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product['product_id'] }}</td>
+                    <td><a href="{{ url_for('product', product_name=product['product_name']) }}">{{ product['product_name'] }}</a></td>
+                    <td>{{ product['product_price'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <footer id="footer" class="footer">
+        <div class="footer__bottom-content">
+            <div class="footer__bottom-copyright">
+                Thomas & Luca 2024©
+            </div>
+        </div> 
+    </footer>
+</body>
+</html>
